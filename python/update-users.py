@@ -65,10 +65,12 @@ def update_group_members(user_sam,membershipDict,sb=user_search_base):
 def diff_users(truth_list,record_list):
     #Given two lists, return a dict of differences of each list
     #dict spec: {left_list:[list_items],right_list:[list_items]}
+    lower_truth_list = _to_lower_case(truth_list)
+    lower_record_list = _to_lower_case(record_list)
     print("Computing the difference between user lists")
     _list_diff = {}
-    _list_diff.update({'left_list':list(set(truth_list)-set(record_list))})
-    _list_diff.update({'right_list':list(set(record_list)-set(truth_list))})
+    _list_diff.update({'left_list':list(set(lower_truth_list)-set(lower_record_list))})
+    _list_diff.update({'right_list':list(set(lower_record_list)-set(lower_truth_list))})
     return _list_diff
 
 def get_group_DN(group_name,sb=group_search_base):
@@ -108,6 +110,12 @@ def remove_users(ad_connection,user_list,group_dn):
         ad_remove(ad_connection,user_list,group_dn,fix=True,raise_error=False)
     else:
         print("No users to remove from the group "+group_dn)
+
+def _to_lower_case(user_list):
+  lower_list = []
+  for item in user_list:
+    lower_list.append(lower_list)
+  return lower_list
 
 config = get_users_from_files(user_files)
 for c in config:
