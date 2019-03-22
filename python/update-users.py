@@ -114,7 +114,7 @@ def remove_users(ad_connection,user_list,group_dn):
 def _to_lower_case(user_list):
   lower_list = []
   for item in user_list:
-    lower_list.append(lower_list)
+    lower_list.append(item.lower())
   return lower_list
 
 config = get_users_from_files(user_files)
