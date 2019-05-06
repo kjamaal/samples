@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/python:latest
-    context: secret_token
+    context: secrets
     steps:
       - run:
           name: "show me an environment variable"
