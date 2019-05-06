@@ -1,6 +1,8 @@
 version: 2
 jobs:
-  get-that-secret:
+  build:
+    docker:
+      - image: circleci/python:latest
     context: secret_token
     steps:
       - run:
