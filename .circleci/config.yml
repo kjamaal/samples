@@ -1,15 +1,8 @@
-version: 2.1
-
-orbs:
-    hello: circleci/hello-build@0.0.5
-
-workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
-          get-that-secret:
-            context: secret_token
-            steps:
-              - run:
-                name: "show me an environment variable"
-                command: echo ${secret_token}
+version: 2
+jobs:
+  get-that-secret:
+    context: secret_token
+    steps:
+      - run:
+        name: "show me an environment variable"
+        command: echo ${secret_token}
