@@ -7,7 +7,7 @@ workflows:
     "Hello Workflow":
         jobs:
           - hello/hello-build
-          - get-that-secret:
+          get-that-secret:
             context: secret_token
             steps:
               - run:
