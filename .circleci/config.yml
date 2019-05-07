@@ -1,10 +1,10 @@
 version: 2
-  jobs:
-    build:
-      context: secrets
-      docker:
-        - image: circleci/python:latest
-      steps:
-        - run:
-            name: "show me an environment variable"
-            command: echo ${secret_token}
+jobs:
+  build:
+    context: secrets
+    docker:
+      - image: circleci/python:latest
+    steps:
+      - run:
+          name: "show me an environment variable"
+          command: echo ${secret_token}
